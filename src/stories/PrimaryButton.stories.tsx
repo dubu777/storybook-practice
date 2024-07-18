@@ -1,3 +1,4 @@
+import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import PrimaryButton from "../components/PrimaryButton";
 import { fn } from "@storybook/test";
@@ -35,7 +36,7 @@ const meta = {
       description: "버튼 비활성화 여부",
       defaultValue: true,
     },
-
+    size: { control: "select", description: "버튼 크기", defaultValue: "medium"},
     onClick: { action: "clicked", description: "버튼 클릭 이벤트" },
   },
   args: {
@@ -51,6 +52,7 @@ export const Dark: Story = {
     theme: "dark",
     disabled: true,
     children: "Button",
+    size: "medium",
   },
 };
 
@@ -60,6 +62,7 @@ export const Light: Story = {
     children: "Button",
     theme: "light",
     disabled: false,
+    size: "medium",
   },
 };
 
@@ -68,6 +71,7 @@ export const Social: Story = {
     children: "Button",
     theme: "social",
     disabled: false,
+    size: "medium",
   },
 };
 
@@ -76,6 +80,7 @@ export const Text: Story = {
     children: "Button",
     theme: "text",
     disabled: false,
+    size: "medium",
   },
 };
 
@@ -84,5 +89,6 @@ export const Disabled: Story = {
     children: "Button",
     theme: "dark",
     disabled: true,
+    size: "medium",
   },
 };

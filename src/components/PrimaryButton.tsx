@@ -1,10 +1,12 @@
 type PrimaryButtonTheme = "dark" | "light" | "social" | "text";
+type ButtonSize = "small" | "medium" | "large";
 
 interface IPrimaryButtonProps {
   theme: PrimaryButtonTheme;
   children: string;
   onClick: React.MouseEventHandler<HTMLButtonElement>;
   disabled: boolean;
+  size?: ButtonSize;
 }
 
 const dark = "text-white bg-primary";
@@ -22,17 +24,24 @@ const color: Record<PrimaryButtonTheme, string> = {
   text,
 };
 
+const sizeStyles: Record<ButtonSize, string> = {
+  small: "h-8 text-sm px-4",
+  medium: "h-[59px] w-full text-base",
+  large: "h-[70px] w-full text-lg",
+};
+
 export default function PrimaryButton({
   theme,
   children,
   onClick,
   disabled,
+  size = 'medium',
 }: IPrimaryButtonProps) {
   return (
     <button
       onClick={onClick}
       disabled={disabled}
-      className={`rounded-button-default h-[59px] w-full ${disabledStyle} ${color[theme]} `}
+      className={`rounded-button-default ${disabledStyle} ${color[theme]} ${sizeStyles[size]}`}
     >
       {children}
     </button>

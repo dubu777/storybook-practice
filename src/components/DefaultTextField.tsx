@@ -40,6 +40,7 @@ export default function DefaultTextField({
       >
         <input
           id={id}
+          data-testid={id}
           className="outline-none"
           onChange={onChange}
           placeholder={placeholder}
